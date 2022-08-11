@@ -3,21 +3,16 @@ pipeline {
 
     tools {
         maven "MAVEN_HOME"
-        jdk "JDK_HOME"
-    }
-
+       }
     stages {
-        stage('Initialize'){
+        stage('build'){
             steps{
-                echo "PATH = ${M2_HOME}/bin:${PATH}"
-                echo "M2_HOME = /opt/maven"
+                echo "hello harsha"
             }
         }
-        stage('Build') {
+        stage('test') {
             steps {
-                dir("/var/lib/jenkins/workspace/my-app/") {
                 sh 'mvn -B -DskipTests clean package'
-                }
             
             }
         }
